@@ -190,7 +190,7 @@ function sendToGas() {
  const idT = liff.getIDToken(); // IDトークン
 	
     $.ajax({
-        url: 'https://script.google.com/macros/s/AKfycbwxcRJf71RgZtPZTrY7sqgFIS9G_wjqb2ob6MWiglUefcGJZ4waJmR7cfvl57PhxLXD/exec',
+        url: 'https://script.google.com/macros/s/AKfycby8BUavq-vU5Lf7CJr5QmJRl-KnrLaxA9j-rpTKU1gZPepxKTmXgE51r8YqySnYe45H/exec',
         type: 'POST',
         data: { idToken: idT },
         success: function(response) {
