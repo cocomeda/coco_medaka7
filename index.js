@@ -184,11 +184,11 @@ function sendQRValueToAPI_2(qrValue) { // GETリクエスト
 
 
 
-function sendToGas(idToken) {
+function sendToGas(idT) {
     $.ajax({
         url: 'https://script.google.com/macros/s/AKfycbxstmvBZk5rW3aLkotjkV2elgwvoOR9TSQlWtRTPv3GlUhfWaotyrC4IVxy2dURwVws/exec',
         type: 'POST',
-        data: { idToken: String(idToken) },
+        data: { idToken: String(idT) },
         success: function(response) {
             console.log(response); // 成功時の処理
             // LIFFのウィンドウを閉じる
