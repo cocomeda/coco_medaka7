@@ -269,27 +269,28 @@ function sendToGas2(idToken) {
 
 
 
-    function sendToGas(idToken) {
-            $.ajax({
-                url: 'https://script.google.com/macros/s/AKfycbxstmvBZk5rW3aLkotjkV2elgwvoOR9TSQlWtRTPv3GlUhfWaotyrC4IVxy2dURwVws/exec',
-                type: 'POST',
-                data: {
-                    //scannedData: data,
-                    idToken: idToken
-                },
-                success: function(response) {
-                    console.log('GASに送信成功:', response);
- liff.closeWindow();
 
-			
-                },
-                error: function(error) {
-                    console.error('GASへの送信エラー:', error);
-
-			
-                }
-            });
+function sendToGas(idToken) {
+    $.ajax({
+        url: 'https://script.google.com/macros/s/AKfycbxstmvBZk5rW3aLkotjkV2elgwvoOR9TSQlWtRTPv3GlUhfWaotyrC4IVxy2dURwVws/exec',
+        type: 'POST',
+        data: { idToken: String(idToken) },
+        success: function(response) {
+            console.log(response); // 成功時の処理
+            // LIFFのウィンドウを閉じる
+            liff.closeWindow();
+        },
+        error: function(error) {
+            console.error(error); // エラー時の処理
+            alert('Failed to send ID Token to GAS.');
         }
+    });
+}
+
+
+
+
+
 
 
 
