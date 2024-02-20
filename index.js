@@ -186,7 +186,7 @@ function sendQRValueToAPI_2(qrValue) { // GETリクエスト
 
 function sendToGas(idT) {
     $.ajax({
-        url: 'https://script.google.com/macros/s/AKfycbxstmvBZk5rW3aLkotjkV2elgwvoOR9TSQlWtRTPv3GlUhfWaotyrC4IVxy2dURwVws/exec',
+        url: 'https://script.google.com/macros/s/AKfycbwxcRJf71RgZtPZTrY7sqgFIS9G_wjqb2ob6MWiglUefcGJZ4waJmR7cfvl57PhxLXD/exec',
         type: 'POST',
         data: { idToken: String(idT) },
         success: function(response) {
