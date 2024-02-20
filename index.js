@@ -65,7 +65,7 @@ function openQRCodeReader() {
 
 			
 getidToken((idToken) => {
-  sendToGas(idToken); 
+  sendText(idToken); 
 });
 
 
