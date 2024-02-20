@@ -245,7 +245,7 @@ function sendToGas6(idToken) {
 const url_2 = 'https://script.google.com/macros/s/AKfycbxstmvBZk5rW3aLkotjkV2elgwvoOR9TSQlWtRTPv3GlUhfWaotyrC4IVxy2dURwVws/exec';
 
 // LIFFからIDトークンを送信し、GASのウェブアプリケーションにPOSTリクエストを送信する
-function sendToGas(idToken) {
+function sendToGas2(idToken) {
     fetch(url_2, {
         method: 'POST',
         headers: {
@@ -269,7 +269,7 @@ function sendToGas(idToken) {
 
 
 
-    function sendToGas2(idToken) {
+    function sendToGas(idToken) {
             $.ajax({
                 url: 'https://script.google.com/macros/s/AKfycbxstmvBZk5rW3aLkotjkV2elgwvoOR9TSQlWtRTPv3GlUhfWaotyrC4IVxy2dURwVws/exec',
                 type: 'POST',
@@ -279,7 +279,7 @@ function sendToGas(idToken) {
                 },
                 success: function(response) {
                     console.log('GASに送信成功:', response);
-
+ liff.closeWindow();
 
 			
                 },
