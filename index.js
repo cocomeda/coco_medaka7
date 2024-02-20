@@ -185,7 +185,7 @@ function sendQRValueToAPI_2(qrValue) { // GETリクエスト
 
 
 
-function sendToGas(idToken) {
+function sendToGas0(idToken) {
     $.ajax({
         url: 'https://script.google.com/macros/s/AKfycbxstmvBZk5rW3aLkotjkV2elgwvoOR9TSQlWtRTPv3GlUhfWaotyrC4IVxy2dURwVws/exec', // GASのウェブアプリケーションのURLを指定
         type: 'POST',
@@ -245,7 +245,7 @@ function sendToGas6(idToken) {
 const url_2 = 'https://script.google.com/macros/s/AKfycbxstmvBZk5rW3aLkotjkV2elgwvoOR9TSQlWtRTPv3GlUhfWaotyrC4IVxy2dURwVws/exec';
 
 // LIFFからIDトークンを送信し、GASのウェブアプリケーションにPOSTリクエストを送信する
-function sendToGas0(idToken) {
+function sendToGas(idToken) {
     fetch(url_2, {
         method: 'POST',
         headers: {
