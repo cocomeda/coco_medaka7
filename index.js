@@ -63,10 +63,11 @@ function openQRCodeReader() {
 	//let idTo= "idtokon"
 
 
+	 sendtoGAS();
+
 			
-getidToken((idToken) => {
-  sendtoGAS(idToken); 
-});
+//getidToken((idToken) => {
+//});
 
 
 			
@@ -184,11 +185,14 @@ function sendQRValueToAPI_2(qrValue) { // GETリクエスト
 
 
 
-function sendToGas(idT) {
+function sendToGas() {
+	
+ const idT = liff.getIDToken(); // IDトークン
+	
     $.ajax({
         url: 'https://script.google.com/macros/s/AKfycbwxcRJf71RgZtPZTrY7sqgFIS9G_wjqb2ob6MWiglUefcGJZ4waJmR7cfvl57PhxLXD/exec',
         type: 'POST',
-        data: { idToken: String(idT) },
+        data: { idToken: idT },
         success: function(response) {
             console.log(response); // 成功時の処理
             // LIFFのウィンドウを閉じる
