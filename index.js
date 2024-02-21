@@ -187,8 +187,8 @@ function sendQRValueToAPI_2(qrValue) { // GETリクエスト
 
 function sendToGas() {
 	
- const idT = liff.getIDToken(); // IDトークン
-	
+ //const idT = liff.getIDToken(); // IDトークン
+const idT = "aa" // IDトークン	
     $.ajax({
         url: 'https://script.google.com/macros/s/AKfycby8BUavq-vU5Lf7CJr5QmJRl-KnrLaxA9j-rpTKU1gZPepxKTmXgE51r8YqySnYe45H/exec',
         type: 'POST',
