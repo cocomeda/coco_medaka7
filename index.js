@@ -42,31 +42,24 @@ $(function () {
 
 
 
-function openQRCodeReader() {
-    liff.scanCode()
-        .then(async result => {
-            if (result.value) {
-                const qrValue = result.value;
 
-			
-getidToken((idToken) => {
-	//sendText(idToken); 
-  sendQRValueToAPI(idToken); 
-});
-
-		    
-              //  await sendQRValueToAPI(qrValue); // QRコードデータをGASに送信
-
-		    
+async function openQRCodeReader() {
+    try {
+        const result = await liff.scanCode();
+        if (result.value) {
+            const qrValue = result.value;
+            const idToken = await getidToken();
+            await sendQRValueToAPI(idToken);
             liff.closeWindow(); // LiFFウィンドウを閉じる
-            } else {
-                console.log('QRコードが見つかりませんでした。');
-            }
-        })
-        .catch(error => {
-            console.error('QRコード読み取り中にエラーが発生しました:', error);
-        });
+        } else {
+            console.log('QRコードが見つかりませんでした。');
+        }
+    } catch (error) {
+        console.error('QRコード読み取り中にエラーが発生しました:', error);
+    }
 }
+
+
 
 async function sendQRValueToAPI(idToken) {
     
@@ -89,11 +82,6 @@ async function sendQRValueToAPI(idToken) {
     const responseData = await response.text();
     console.log('APIレスポンス:', responseData);
 }
-
-
-
-
-
 
 
 
