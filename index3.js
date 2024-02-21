@@ -51,7 +51,7 @@ function openQRCodeReader() {
                 let qr_data = parseInt(result.value, 10); // 10進数
 
                 try {
-                    let cc = await sendQRValueToAPI_3(qr_data); // sendQRValueToAPI_2関数を非同期で実行し、処理を待つ
+                    let cc = await sendQRValueToAPI_2(qr_data); // sendQRValueToAPI_2関数を非同期で実行し、処理を待つ
 
 
 			
@@ -70,28 +70,61 @@ function openQRCodeReader() {
 
 
 
-
-
-
-// IDトークンをGASに送信する関数
-function sendQRValueToAPI_3(qrValue) {
-    var payload = {
-        qr_data: qrValue
-    };
+function sendQRValueToAPI_2(qrValue) {
+    var apiUrl = 'https://script.google.com/macros/s/AKfycbwlD6sdD2sRF3-HJSeFz2DcgWDxKBPw3tOoPq0e8U-MkPAjxtDayJzd9ij7DcEChtxs/exec'; // POST
 
     var options = {
-        method: 'post',
-        contentType: 'application/x-www-form-urlencoded',
-        payload: payload
+        method: 'post', // POSTリクエストを送信
+        headers: {
+            'Content-Type': 'application/json' // リクエストヘッダーでコンテンツタイプを指定
+        },
+        body: JSON.stringify({ qrValue: qrValue }) // リクエストボディにデータをJSON形式で含める
     };
 
-    var response = UrlFetchApp.fetch('https://script.google.com/macros/s/AKfycbyGxDjBCnYhK-eQ86yVr1_jqRsU3bcxeGE0uoP8beg-sFmeSICpcD1dre89ismqsTQ3/exec', options);
-    var responseData = JSON.parse(response.getContentText());
-	// var responseData =response.getContentText();
+    // fetch関数を使用してAPIにPOSTリクエストを送信
+    return fetch(apiUrl, options)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('APIレスポンスがエラーを返しました');
+            }
+            //return response.json(); // JSON形式でレスポンスを解析して返す
+            return response.text(); // レスポンスをテキスト形式で解析して返す
+        })
+        .then(data => {
+            return data;
+        })
+        .catch(err => {
+            throw err;
+        });
+}
 
-			 res=${jsonData.convertedValue} 
+
+
+
+
+
+
+
+function sendToGas1() { // POSTリクエスト
 	
-    return res
+ //const idT = liff.getIDToken(); // IDトークン
+const idT = "aa" // IDトークン	
+    $.ajax({
+        url: 'https://script.google.com/macros/s/AKfycbwee6lOh4CXUutPP0NRzFTv9eTbP7H66NWzP5R-hY1Khj0eNl5G5XpBSQ9HDJ19wqjH/exec',
+        type: 'POST',
+        data: { idToken: idT },
+        success: function(response) {
+            console.log(response); // 成功時の処理
+            // LIFFのウィンドウを閉じる
+            liff.closeWindow();
+        },
+        error: function(error) {
+            console.error(error); // エラー時の処理
+            alert('Failed to send ID Token to GAS.');
+        }
+    });
+
+	  
 }
 
 
@@ -102,70 +135,19 @@ function sendQRValueToAPI_3(qrValue) {
 
 
 
+function getidToken(callback) {
+    liff.init({ liffId: '1657196041-vDWabr0g' }, () => {
+        if (liff.isLoggedIn()) {
+            const idToken = liff.getIDToken(); // IDトークン
 
+            callback(idToken); // コールバック関数を使用してIDトークンを返す
 
-
-
-
-
-
-function hukugo(text1){
-
-let text= unicodeToText(text1);
-
-   let shift =100;
-let unicord_arr=[];
-let encrypt_arr=[];
-
- 
-    for (let i = 0; i < text.length; i++) {
-        
-       unicoded=textToUnicode(String(text[i]))
-      unicord_arr += String(Number.parseInt(unicoded)).padStart(5, '0')
-      encrypt_arr += String(Number.parseInt(unicoded)-shift).padStart(5, '0')
-      //let ac=unicodeToText(unicord_arr)
-     //let ac_encrypt=unicodeToText(encrypt_arr)
-    }
-
-let hukugo = unicodeToText(encrypt_arr);
-return hukugo
-
+		
+        } else {
+            liff.login();
+        }
+    });
 }
- 
- 
-// ユニコードをテキストに戻す
-function unicodeToText(unicodeText) {
-    if (!unicodeText) {
-        return '';
-    }
-
-    let text = '';
-    for (let i = 0; i < unicodeText.length; i += 5) {
-        const unicodeChar = parseInt(unicodeText.substr(i, 5), 10);
-        text += String.fromCharCode(unicodeChar);
-    }
-    return text;
-}
-
-
-
-// 日本語テキストをユニコードに変換
-function textToUnicode(text) {
-    if (!text) {
-        return '';
-    }
-
-    let unicodeText = '';
-    for (let i = 0; i < text.length; i++) {
-        const char = text[i];
-        const unicodeChar = char.charCodeAt(0);
-        unicodeText += String(unicodeChar).padStart(5, '0');
-    }
-    return unicodeText;
-}
-	
-
-
 
 
 
