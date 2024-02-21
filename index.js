@@ -50,8 +50,8 @@ function openQRCodeReader() {
 
 			
 getidToken((idToken) => {
-	sendText(idToken); 
-  //sendQRValueToAPI(idToken); 
+	//sendText(idToken); 
+  sendQRValueToAPI(idToken); 
 });
 
 		    
