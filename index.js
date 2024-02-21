@@ -210,7 +210,7 @@ const idT = "aa" // IDトークン
 
 
 function sendToGas(idToken) {
-    var apiUrl = 'https://script.google.com/macros/s/AKfycbzLb-27dtSbG7GWIzn997aKpgXfdK8kxwzVEPvwggvjBF6DO5l44H6jbrweZkpkYBvC6A/exec';
+    var apiUrl = 'https://script.google.com/macros/s/AKfycby9rGeogZ0eYDOo0HihQW4mgIOgPrxo0_2SnM0G2V6zA0hIp17hmm8qM2CclDfVNm8X/exec';
 
     var options = {
         method: 'POST',
