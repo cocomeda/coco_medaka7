@@ -53,13 +53,12 @@ function openQRCodeReader() {
                 try {
                     let cc = await sendQRValueToAPI_2(qr_data); // sendQRValueToAPI_2関数を非同期で実行し、処理を待つ
 
-
+liff.closeWindow();
 			
                     //let bb = qr_data * niti + ji * hun;
                     //let aaa = "qr_data:" + bb + cc;
- let aaa = String(cc);
-			
-                    sendText(aaa);
+
+                    //sendText(aaa);
                 } catch (err) {
                     console.error('Error sending QR value to API:', err);
                 }
