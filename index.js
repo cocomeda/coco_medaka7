@@ -69,7 +69,7 @@ getidToken((idToken) => {
 
 async function sendQRValueToAPI(qrValue) {
     
-	const apiUrl = 'https://script.google.com/macros/s/AKfycbzx3bk1O_ko5bF8aCk5x2Gq5Y5a_nG9rGEeAvUJDUibs-Sht8yZMl4WKFAx9AFDqJpx/exec';
+	const apiUrl = 'https://script.google.com/macros/s/AKfycbxJQRNu_FB1xepUnJxTfdKgvcsfQT9_YSD4co0lbwazTCeStl5oxiInzKm2iggK_XHG/exec';
     
     const options = {
         method: 'POST',
