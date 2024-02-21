@@ -63,7 +63,7 @@ function openQRCodeReader() {
 	//let idTo= "idtokon"
 
 
-	 sendtoGAS();
+	 sendtoGAS1();
 
 			
 //getidToken((idToken) => {
@@ -186,7 +186,7 @@ function sendQRValueToAPI_2(qrValue) { // GETリクエスト
 
 
 
-function sendToGas() {
+function sendToGas1() {
 	
  //const idT = liff.getIDToken(); // IDトークン
 const idT = "aa" // IDトークン	
