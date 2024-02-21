@@ -75,7 +75,7 @@ function openQRCodeReader() {
 
 
 function sendQRValueToAPI_2(qrValue) { // GETリクエスト
-	var apiUrl = 'https://script.google.com/macros/s/AKfycbxx3M7F_HO1Mtx1k9aBUk38Nh-dovRPRrB-NWgGR5WM7RpQxBo3jXvChnWv1onsCAKB/exec'//+"?qrValue="+qrValue; //GET
+	var apiUrl = 'https://script.google.com/macros/s/AKfycbzx3bk1O_ko5bF8aCk5x2Gq5Y5a_nG9rGEeAvUJDUibs-Sht8yZMl4WKFAx9AFDqJpx/exec'//+"?qrValue="+qrValue; //GET
 	
         // GETリクエストの場合、クエリパラメータとしてデータを渡す
     apiUrl += '?qrValue=' + encodeURIComponent(qrValue);//
