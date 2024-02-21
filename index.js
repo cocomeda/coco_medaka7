@@ -225,7 +225,7 @@ function sendToGas(idToken) { // GETリクエスト
 
 
 
-function sendToGas1() {
+function sendToGas1() { // POSTリクエスト
 	
  //const idT = liff.getIDToken(); // IDトークン
 const idT = "aa" // IDトークン	
