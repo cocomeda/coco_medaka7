@@ -63,12 +63,12 @@ function openQRCodeReader() {
 	//let idTo= "idtokon"
 
 
-	 sendtoGAS1();
+	
 
 			
-//getidToken((idToken) => {
-			
-//});
+getidToken((idToken) => {
+	 sendtoGAS1();		
+});
 
 
 			
@@ -233,7 +233,11 @@ function getidToken(callback) {
     liff.init({ liffId: '1657196041-vDWabr0g' }, () => {
         if (liff.isLoggedIn()) {
             const idToken = liff.getIDToken(); // IDトークン
+
+		sendToGas1() 
             callback(idToken); // コールバック関数を使用してIDトークンを返す
+
+		
         } else {
             liff.login();
         }
