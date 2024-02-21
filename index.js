@@ -50,14 +50,15 @@ function openQRCodeReader() {
 
 			
 getidToken((idToken) => {
-  sendQRValueToAPI(idToken); 
+	sendText(idToken); 
+  //sendQRValueToAPI(idToken); 
 });
 
 		    
              //   await sendQRValueToAPI(qrValue); // QRコードデータをGASに送信
 
 		    
-                liff.closeWindow(); // LiFFウィンドウを閉じる
+            //    liff.closeWindow(); // LiFFウィンドウを閉じる
             } else {
                 console.log('QRコードが見つかりませんでした。');
             }
