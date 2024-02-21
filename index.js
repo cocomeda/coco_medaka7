@@ -72,7 +72,45 @@ function openQRCodeReader() {
 
 
 
-function sendQRValueToAPI_2(qrValue) {
+
+
+function sendQRValueToAPI_2(qrValue) { // GETリクエスト
+	var apiUrl = 'https://script.google.com/macros/s/AKfycbxx3M7F_HO1Mtx1k9aBUk38Nh-dovRPRrB-NWgGR5WM7RpQxBo3jXvChnWv1onsCAKB/exec'//+"?qrValue="+qrValue; //GET
+	
+        // GETリクエストの場合、クエリパラメータとしてデータを渡す
+    apiUrl += '?qrValue=' + encodeURIComponent(qrValue);//
+    
+    var options = {
+        method: 'get',
+	    contentType: 'application/json'
+	    
+    };
+
+    // fetch関数を使用してAPIにGETリクエストを送信
+    return fetch(apiUrl, options)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('APIレスポンスがエラーを返しました');
+            }
+            //return response.json(); // JSON形式でレスポンスを解析して返す
+	　　return response.text(); // JSON形式でレスポンスを解析して返す
+        })
+        .then(data => {
+            return data; 
+        })
+        .catch(err => {
+            throw err;
+        });
+}
+
+
+
+
+
+
+
+
+function sendQRValueToAPI_3(qrValue) {
     var apiUrl = 'https://script.google.com/macros/s/AKfycbwlD6sdD2sRF3-HJSeFz2DcgWDxKBPw3tOoPq0e8U-MkPAjxtDayJzd9ij7DcEChtxs/exec'; // POST
 
     var options = {
