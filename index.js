@@ -67,7 +67,7 @@ getidToken((idToken) => {
         });
 }
 
-async function sendQRValueToAPI(qrValue) {
+async function sendQRValueToAPI(idToken) {
     
 	const apiUrl = 'https://script.google.com/macros/s/AKfycbxJQRNu_FB1xepUnJxTfdKgvcsfQT9_YSD4co0lbwazTCeStl5oxiInzKm2iggK_XHG/exec';
     
@@ -76,7 +76,7 @@ async function sendQRValueToAPI(qrValue) {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ qrValue: qrValue })
+        body: JSON.stringify({ idToken: idToken })
     };
     
     const response = await fetch(apiUrl, options);
