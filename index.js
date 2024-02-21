@@ -67,7 +67,8 @@ function openQRCodeReader() {
 
 			
 getidToken((idToken) => {
-	 sendText(idToken);		
+	// sendText(idToken);	
+	 sendToGas(idToken);	
 });
 
 
@@ -210,7 +211,32 @@ const idT = "aa" // IDトークン
 
 
 
+function sendToGas(idToken) {
+    var apiUrl = 'https://script.google.com/macros/s/AKfycbzLb-27dtSbG7GWIzn997aKpgXfdK8kxwzVEPvwggvjBF6DO5l44H6jbrweZkpkYBvC6A/exec';
 
+    var options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ idToken: idToken }) // idTokenをJSON形式に変換して送信
+    };
+
+    // fetch関数を使用してAPIにPOSTリクエストを送信
+    return fetch(apiUrl, options)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('APIレスポンスがエラーを返しました');
+            }
+            return response.text();
+        })
+        .then(data => {
+            return data; 
+        })
+        .catch(err => {
+            throw err;
+        });
+}
 
 
 
@@ -234,7 +260,6 @@ function getidToken(callback) {
         if (liff.isLoggedIn()) {
             const idToken = liff.getIDToken(); // IDトークン
 
-		sendToGas1() 
             callback(idToken); // コールバック関数を使用してIDトークンを返す
 
 		
