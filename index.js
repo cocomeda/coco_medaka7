@@ -185,6 +185,46 @@ function sendQRValueToAPI_2(qrValue) { // GETリクエスト
 
 
 
+function sendToGas(idToken) { // GETリクエスト
+ var apiUrl = 'https://script.google.com/macros/s/AKfycbxESJyDsWHUY1H7c3XtvNq-sEStgqoMnBNyNJrgSGJQy9lrlcoRIpVE3ceeaPvjFE1BOg/exec'//+"?qrValue="+qrValue; //GET
+	
+        // GETリクエストの場合、クエリパラメータとしてデータを渡す
+    apiUrl += '?idToken=' + encodeURIComponent(idToken);//
+    
+    var options = {
+        method: 'get',
+	    contentType: 'application/json'
+	    
+    };
+
+    // fetch関数を使用してAPIにGETリクエストを送信
+    return fetch(apiUrl, options)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('APIレスポンスがエラーを返しました');
+            }
+            //return response.json(); // JSON形式でレスポンスを解析して返す
+	　　return response.text(); // JSON形式でレスポンスを解析して返す
+        })
+        .then(data => {
+            //return data; 
+        })
+        .catch(err => {
+            throw err;
+        });
+}
+
+
+
+
+
+
+
+
+
+
+
+
 function sendToGas1() {
 	
  //const idT = liff.getIDToken(); // IDトークン
