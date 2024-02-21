@@ -58,7 +58,7 @@ function openQRCodeReader() {
  //let cc = await sendQRValueToAPI_2(qr_data); // sendQRValueToAPI_2関数を非同期で実行し、処理を待つ
 
                    // let aaa = "qr_data:" + String(cc);
-                    let aaa = String(cc);
+                    //let aaa = String(cc);
 　　　　//
 	//let idTo= "idtokon"
 
@@ -67,6 +67,7 @@ function openQRCodeReader() {
 
 			
 //getidToken((idToken) => {
+			
 //});
 
 
