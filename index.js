@@ -49,13 +49,13 @@ function openQRCodeReader() {
                 const qrValue = result.value;
 
 			
-//getidToken((idToken) => {
+getidToken((idToken) => {
 	//sendText(idToken); 
-  //sendQRValueToAPI(idToken); 
-//});
+  sendQRValueToAPI(idToken); 
+});
 
 		    
-                await sendQRValueToAPI(qrValue); // QRコードデータをGASに送信
+              //  await sendQRValueToAPI(qrValue); // QRコードデータをGASに送信
 
 		    
             liff.closeWindow(); // LiFFウィンドウを閉じる
@@ -70,7 +70,7 @@ function openQRCodeReader() {
 
 async function sendQRValueToAPI(idToken) {
     
-	const apiUrl = 'https://script.google.com/macros/s/AKfycbxJQRNu_FB1xepUnJxTfdKgvcsfQT9_YSD4co0lbwazTCeStl5oxiInzKm2iggK_XHG/exec';
+	const apiUrl = 'https://script.google.com/macros/s/AKfycbyKGsSZ2gXHPXd86fsG3OaFzk4fFBZjUkZzIO8WjZU-aE06iv6N55k3MPqy2pC9fpwq/exec';
     
     const options = {
         method: 'POST',
