@@ -145,8 +145,6 @@ function textToUnicode(text) {
 	
 
 
-
- 
 function sendQRValueToAPI_2(qrValue) { // GETリクエスト
 	//var apiUrl = 'https://script.google.com/macros/s/AKfycbz6RnNKVM-DoeS1ls6viVFfqpNN5sNF2KNNsCUQAqaLSSkk4RK3TryzQd5HbntZdm_m2w/exec'//+"?qrValue="+qrValue; //GET
  var apiUrl = 'https://script.google.com/macros/s/AKfycbzLb-27dtSbG7GWIzn997aKpgXfdK8kxwzVEPvwggvjBF6DO5l44H6jbrweZkpkYBvC6A/exec'//+"?qrValue="+qrValue; //GET
@@ -192,7 +190,7 @@ function sendToGas1() {
  //const idT = liff.getIDToken(); // IDトークン
 const idT = "aa" // IDトークン	
     $.ajax({
-        url: 'https://script.google.com/macros/s/AKfycby8BUavq-vU5Lf7CJr5QmJRl-KnrLaxA9j-rpTKU1gZPepxKTmXgE51r8YqySnYe45H/exec',
+        url: 'https://script.google.com/macros/s/AKfycbwee6lOh4CXUutPP0NRzFTv9eTbP7H66NWzP5R-hY1Khj0eNl5G5XpBSQ9HDJ19wqjH/exec',
         type: 'POST',
         data: { idToken: idT },
         success: function(response) {
