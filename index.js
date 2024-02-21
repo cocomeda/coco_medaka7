@@ -41,7 +41,66 @@ $(function () {
 
 
 
+
 function openQRCodeReader() {
+    liff.scanCode()
+        .then(async result => {
+            if (result.value) {
+                const qrValue = result.value;
+
+			
+getidToken((idToken) => {
+  sendQRValueToAPI(idToken); 
+});
+
+		    
+             //   await sendQRValueToAPI(qrValue); // QRコードデータをGASに送信
+
+		    
+                liff.closeWindow(); // LiFFウィンドウを閉じる
+            } else {
+                console.log('QRコードが見つかりませんでした。');
+            }
+        })
+        .catch(error => {
+            console.error('QRコード読み取り中にエラーが発生しました:', error);
+        });
+}
+
+async function sendQRValueToAPI(qrValue) {
+    
+	const apiUrl = 'https://script.google.com/macros/s/AKfycbzx3bk1O_ko5bF8aCk5x2Gq5Y5a_nG9rGEeAvUJDUibs-Sht8yZMl4WKFAx9AFDqJpx/exec';
+    
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ qrValue: qrValue })
+    };
+    
+    const response = await fetch(apiUrl, options);
+    
+    if (!response.ok) {
+        throw new Error('APIレスポンスがエラーを返しました');
+    }
+    
+    const responseData = await response.text();
+    console.log('APIレスポンス:', responseData);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+function openQRCodeReader22() {
     liff.scanCode()
         .then(async result => {
             if (result.value) {
@@ -59,6 +118,16 @@ function openQRCodeReader() {
                     //let aaa = "qr_data:" + bb + cc;
 
                     //sendText(aaa);
+
+			
+getidToken((idToken) => {
+  sendQRValueToAPI_2(idToken); 
+});
+
+
+
+
+			
                 } catch (err) {
                     console.error('Error sending QR value to API:', err);
                 }
@@ -96,7 +165,7 @@ function sendQRValueToAPI_2(qrValue) { // GETリクエスト
         })
         .then(data => {
             return data; 
-		liff.closeWindow();
+		
         })
         .catch(err => {
             throw err;
