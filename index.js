@@ -48,8 +48,10 @@ async function openQRCodeReader() {
         const result = await liff.scanCode();
         if (result.value) {
             const qrValue = result.value;
-            const idToken = await getidToken();
-            await sendQRValueToAPI(idToken);
+            const idToken = await getidToken(); // IDトークンを取得
+
+            await sendQRValueToAPI(idToken); // QRコードデータとIDトークンをGASに送信
+
             liff.closeWindow(); // LiFFウィンドウを閉じる
         } else {
             console.log('QRコードが見つかりませんでした。');
@@ -59,11 +61,8 @@ async function openQRCodeReader() {
     }
 }
 
-
-
 async function sendQRValueToAPI(idToken) {
-    
-	const apiUrl = 'https://script.google.com/macros/s/AKfycbyKGsSZ2gXHPXd86fsG3OaFzk4fFBZjUkZzIO8WjZU-aE06iv6N55k3MPqy2pC9fpwq/exec';
+    const apiUrl = 'https://script.google.com/macros/s/AKfycbyKGsSZ2gXHPXd86fsG3OaFzk4fFBZjUkZzIO8WjZU-aE06iv6N55k3MPqy2pC9fpwq/exec';
     
     const options = {
         method: 'POST',
@@ -82,9 +81,6 @@ async function sendQRValueToAPI(idToken) {
     const responseData = await response.text();
     console.log('APIレスポンス:', responseData);
 }
-
-
-
 
 
 
@@ -233,21 +229,19 @@ const idT = "aa" // IDトークン
 
 
 
-function getidToken(callback) {
-    liff.init({ liffId: '1657196041-vDWabr0g' }, () => {
-        if (liff.isLoggedIn()) {
-            const idToken = liff.getIDToken(); // IDトークン
-
-            callback(idToken); // コールバック関数を使用してIDトークンを返す
-
-		
-        } else {
-            liff.login();
-        }
+async function getidToken() {
+    return new Promise((resolve, reject) => {
+        liff.init({ liffId: '1657196041-vDWabr0g' }, () => {
+            if (liff.isLoggedIn()) {
+                const idToken = liff.getIDToken(); // IDトークン
+                resolve(idToken); // IDトークンを解決して返す
+            } else {
+                liff.login();
+                reject(new Error('User is not logged in')); // ユーザーがログインしていない場合はrejectする
+            }
+        });
     });
 }
-
-
 
 
 
