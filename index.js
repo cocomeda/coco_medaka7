@@ -29,9 +29,7 @@ $(function () {
     let msg={};
     
        msg = ["code：" + s_code] ;　 //トークに送信する内容
-
-        
-        
+ 
         sendText(String(msg)); 
       
         return false;
@@ -41,48 +39,21 @@ $(function () {
 
 
 
-
-
 async function openQRCodeReader() {
     try {
         const result = await liff.scanCode();
         if (result.value) {
             const qrValue = result.value;
 
-
 // getidToken()を呼び出し、Promiseを使用してIDトークンを取得する
-         
 getidToken()
     .then(idToken => {
         // IDトークンを使用して何かを行う
 
-
-    const apiUrl = 'https://script.google.com/macros/s/AKfycby_2FhHltY1T3pACSrP6qc-MUObEkHbrpD7H-wcDESsuigWU1cer1aQcJDb-yDK3CR4/exec';
-    
-    const options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ idToken: idToken })
-    };
-  
-    const response = await fetch(apiUrl, options);
-    
-    if (!response.ok) {
-        throw new Error('APIレスポンスがエラーを返しました');
-    }
-    
-    const responseData = await response.text();
-    console.log('APIレスポンス:', responseData);
+sendToGas(idToken)
 
 
 
-
-
-
-
-       
        
     })
     .catch(error => {
@@ -91,12 +62,7 @@ getidToken()
 
      
     });
-
-
-           
-           
-
-            liff.closeWindow(); // LiFFウィンドウを閉じる
+   liff.closeWindow(); // LiFFウィンドウを閉じる
         } else {
             console.log('QRコードが見つかりませんでした。');
         }
@@ -106,6 +72,40 @@ getidToken()
 }
 
 
+
+
+
+
+
+
+
+
+function sendToGas(idToken) {
+    var apiUrl = 'https://script.google.com/macros/s/AKfycby_2FhHltY1T3pACSrP6qc-MUObEkHbrpD7H-wcDESsuigWU1cer1aQcJDb-yDK3CR4/exec';
+
+    var options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ idToken: idToken }) // idTokenをJSON形式に変換して送信
+    };
+
+    // fetch関数を使用してAPIにPOSTリクエストを送信
+    return fetch(apiUrl, options)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('APIレスポンスがエラーを返しました');
+            }
+            return response.text();
+        })
+        .then(data => {
+            return data; 
+        })
+        .catch(err => {
+            throw err;
+        });
+}
 
 
 
