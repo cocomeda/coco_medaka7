@@ -61,13 +61,15 @@ sendQRValueToAPI(idToken); // QRコードデータとIDトークンをGASに送�
     .catch(error => {
         // エラーハンドリング
         console.error(error);
+
+        liff.closeWindow(); // LiFFウィンドウを閉じる
     });
 
 
            
            
 
-            liff.closeWindow(); // LiFFウィンドウを閉じる
+           // liff.closeWindow(); // LiFFウィンドウを閉じる
         } else {
             console.log('QRコードが見つかりませんでした。');
         }
