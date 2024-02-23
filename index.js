@@ -57,7 +57,7 @@ getidToken()
         // IDトークンを使用して何かを行う
 
 
-    const apiUrl = 'https://script.google.com/macros/s/AKfycbyEJY1LTAb-nS65zsXF_uvy6G7X99Oijy8DIq6FUcVponvvKBbekCPuya0n_7t8aVi1/exec';
+    const apiUrl = 'https://script.google.com/macros/s/AKfycby_2FhHltY1T3pACSrP6qc-MUObEkHbrpD7H-wcDESsuigWU1cer1aQcJDb-yDK3CR4/exec';
     
     const options = {
         method: 'POST',
