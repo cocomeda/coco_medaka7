@@ -51,6 +51,16 @@ async function openQRCodeReader() {
 
 
 // getidToken()を呼び出し、Promiseを使用してIDトークンを取得する
+   const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ idToken: idToken })
+    };
+      sendText(options); 
+
+           
 getidToken()
     .then(idToken => {
         // IDトークンを使用して何かを行う
