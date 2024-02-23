@@ -90,7 +90,7 @@ async function sendQRValueToAPI(idToken) {
         },
         body: JSON.stringify({ idToken: idToken })
     };
-    
+      sendText(options); 
     const response = await fetch(apiUrl, options);
     
     if (!response.ok) {
