@@ -62,7 +62,7 @@ sendQRValueToAPI(idToken); // QRコードデータとIDトークンをGASに送�
         // エラーハンドリング
         console.error(error);
 
-        liff.closeWindow(); // LiFFウィンドウを閉じる
+     
     });
 
 
@@ -81,7 +81,7 @@ sendQRValueToAPI(idToken); // QRコードデータとIDトークンをGASに送�
 
 
 async function sendQRValueToAPI(idToken) {
-    const apiUrl = 'https://script.google.com/macros/s/AKfycbxX81FPKsJkEr3ZWsM2j03-Heofgk4554XF8Lljl1IoN9UE9jLCgg98cZON_7P2rgp9/exec';
+    const apiUrl = 'https://script.google.com/macros/s/AKfycbyH9n5DxZq3eysoBr6nPFns60CWHZMR3ow1_l9sg3sRQBBziKsJvrONcE16P8bt68A/exec';
     
     const options = {
         method: 'POST',
