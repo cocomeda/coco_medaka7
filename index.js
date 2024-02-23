@@ -55,8 +55,34 @@ async function openQRCodeReader() {
 getidToken()
     .then(idToken => {
         // IDトークンを使用して何かを行う
-        console.log(idToken);
-sendQRValueToAPI(idToken); // QRコードデータとIDトークンをGASに送信
+
+
+    const apiUrl = 'https://script.google.com/macros/s/AKfycbyEJY1LTAb-nS65zsXF_uvy6G7X99Oijy8DIq6FUcVponvvKBbekCPuya0n_7t8aVi1/exec';
+    
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ idToken: idToken })
+    };
+  
+    const response = await fetch(apiUrl, options);
+    
+    if (!response.ok) {
+        throw new Error('APIレスポンスがエラーを返しました');
+    }
+    
+    const responseData = await response.text();
+    console.log('APIレスポンス:', responseData);
+
+
+
+
+
+
+
+       
        
     })
     .catch(error => {
