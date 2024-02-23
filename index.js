@@ -226,10 +226,22 @@ const idT = "aa" // IDトークン
 
 
 
-
-
-
 async function getidToken() {
+    return new Promise((resolve, reject) => {
+        liff.init({ liffId: '1657196041-vDWabr0g' }, () => {
+            if (liff.isLoggedIn()) {
+                const idToken = liff.getIDToken(); // IDトークン
+                resolve(idToken); // IDトークンを解決して返す
+            } else {
+                liff.login();
+                reject(new Error('User is not logged in')); // ユーザーがログインしていない場合はrejectする
+            }
+        });
+    });
+}
+
+
+async function getidToken2() {
     return new Promise((resolve, reject) => {
         liff.init({ liffId: '1657196041-vDWabr0g' }, () => {
             if (liff.isLoggedIn()) {
