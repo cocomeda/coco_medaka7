@@ -48,9 +48,24 @@ async function openQRCodeReader() {
         const result = await liff.scanCode();
         if (result.value) {
             const qrValue = result.value;
-            const idToken = await getidToken(); // IDトークンを取得
 
-            await sendQRValueToAPI(idToken); // QRコードデータとIDトークンをGASに送信
+
+// getidToken()を呼び出し、Promiseを使用してIDトークンを取得する
+getidToken()
+    .then(idToken => {
+        // IDトークンを使用して何かを行う
+        console.log(idToken);
+sendQRValueToAPI(idToken); // QRコードデータとIDトークンをGASに送信
+       
+    })
+    .catch(error => {
+        // エラーハンドリング
+        console.error(error);
+    });
+
+
+           
+           
 
             liff.closeWindow(); // LiFFウィンドウを閉じる
         } else {
@@ -60,6 +75,8 @@ async function openQRCodeReader() {
         console.error('QRコード読み取り中にエラーが発生しました:', error);
     }
 }
+
+
 
 async function sendQRValueToAPI(idToken) {
     const apiUrl = 'https://script.google.com/macros/s/AKfycbwjSjU1EHhnY0ekVoly-xLBwCPjl33fKFPaGIZ5kKEzTT2MuDvdxqnpRRlFYNDFzmOj/exec';
@@ -86,16 +103,21 @@ async function sendQRValueToAPI(idToken) {
 
 
 
+
+
+
 async function getidToken() {
     return new Promise((resolve, reject) => {
-        liff.init({ liffId: '1657196041-vDWabr0g' }, () => {
+        liff.init({ liffId: '2001269046-RZ90vdYB' }, () => {
             if (liff.isLoggedIn()) {
                 const idToken = liff.getIDToken(); // IDトークン
-                resolve(idToken); // IDトークンを解決して返す
+                resolve(idToken); // Promiseを解決してIDトークンを返す
             } else {
                 liff.login();
-                reject(new Error('User is not logged in')); // ユーザーがログインしていない場合はrejectする
+                reject(new Error('User not logged in')); // ログインしていない場合はエラーを返す
             }
         });
     });
 }
+
+
