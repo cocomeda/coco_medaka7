@@ -81,7 +81,7 @@ sendQRValueToAPI(idToken); // QRコードデータとIDトークンをGASに送�
 
 
 async function sendQRValueToAPI(idToken) {
-    const apiUrl = 'https://script.google.com/macros/s/AKfycby8CuMcZgVq5Ddkmm8uoNprBr_HT0lVIHHwHXUEREMiYiL021OmbAVMJIOiZN1ZazNO/exec';
+    const apiUrl = 'https://script.google.com/macros/s/AKfycbyEJY1LTAb-nS65zsXF_uvy6G7X99Oijy8DIq6FUcVponvvKBbekCPuya0n_7t8aVi1/exec';
     
     const options = {
         method: 'POST',
