@@ -69,7 +69,7 @@ sendQRValueToAPI(idToken); // QRコードデータとIDトークンをGASに送�
            
            
 
-           // liff.closeWindow(); // LiFFウィンドウを閉じる
+            liff.closeWindow(); // LiFFウィンドウを閉じる
         } else {
             console.log('QRコードが見つかりませんでした。');
         }
