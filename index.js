@@ -62,7 +62,7 @@ async function openQRCodeReader() {
 }
 
 async function sendQRValueToAPI(idToken) {
-    const apiUrl = 'https://script.google.com/macros/s/AKfycbyKGsSZ2gXHPXd86fsG3OaFzk4fFBZjUkZzIO8WjZU-aE06iv6N55k3MPqy2pC9fpwq/exec';
+    const apiUrl = 'https://script.google.com/macros/s/AKfycbwjSjU1EHhnY0ekVoly-xLBwCPjl33fKFPaGIZ5kKEzTT2MuDvdxqnpRRlFYNDFzmOj/exec';
     
     const options = {
         method: 'POST',
