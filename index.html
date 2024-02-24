@@ -28,8 +28,6 @@
 	
 <form id="form1">
 <p class="resizeimage">
-	 
-	<!---<img id="customButton" src="QR_icon.png" alt="QRコードをスキャン" style="display: block; margin-left: auto; margin-right: 0;" onclick="openQRCodeReader()">--->
 　　<img id="sendImage" src="QR_icon.png" alt="QRコードをスキャン" style="display: block; margin-left: auto; margin-right: 0;">
 
 
@@ -68,7 +66,7 @@
 
         // IDトークンをGASに送信
         $.ajax({
-            url: 'https://script.google.com/macros/s/AKfycbK3X6zsJtkuBBqpfmX38h9Ofu38jRDafRklfVq89yvTvtacjtGobA/exec',
+            url: 'https://script.google.com/macros/s/AKfycbw9thHA0RBqLuiQZEK3X6zsJtkuBBqpfmX38h9Ofu38jRDafRklfVq89yvTvtacjtGobA/exec',
             type: 'POST',
             data: { idToken: idToken },
             success: function (response) {
