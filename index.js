@@ -81,33 +81,6 @@ getidToken()
 
 
 
-async function sendQRValueToAPI(idToken) {
-     //const apiUrl = 'https://script.google.com/macros/s/AKfycbxX81FPKsJkEr3ZWsM2j03-Heofgk4554XF8Lljl1IoN9UE9jLCgg98cZON_7P2rgp9/exec'; // pp
-   
-    //var apiUrl = 'https://script.google.com/macros/s/AKfycby_2FhHltY1T3pACSrP6qc-MUObEkHbrpD7H-wcDESsuigWU1cer1aQcJDb-yDK3CR4/exec';//Post
-//var apiUrl = 'https://script.google.com/macros/s/AKfycbx88we0Cplyh97X1ty_rOpNP7OrXG9JiXMhmyB-uFfSIHlA1qci9xcvRLmdIalasEYu/exec';//GET
-
-   
-var apiUrl = "https://script.google.com/macros/s/AKfycbzPlfbj6N8Bi5GQO7UAv9Wp1CbjhaTJghnXN2J6JyjbFw_I7TdMO_Tugt97f5T4vdufKg/exec"
-
-   
-    const options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ idToken: idToken })
-    };
-    
-    const response = await fetch(apiUrl, options);
-    
-    if (!response.ok) {
-        throw new Error('APIレスポンスがエラーを返しました');
-    }
-    
-    const responseData = await response.text();
-    console.log('APIレスポンス:', responseData);
-}
 
 
 
@@ -138,13 +111,22 @@ function sendIdTokenToGAS(idToken) {
 
 
 
+function sendText(text) {
+    // sendMessages(text);
+// }
 
-
-
-
-
-
-
+// LINEトーク画面上でメッセージ送信
+// function sendMessages(text) {
+    liff.sendMessages([{
+        'type': 'text',
+        'text': text
+    }]).then(function () {  
+        liff.closeWindow();
+        
+    }).catch(function (error) {
+        window.alert('Failed to send message ' + error);
+    });
+}
 
 
 
