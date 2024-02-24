@@ -14,6 +14,7 @@ var key = params.get('key');
     let byou =today.getSeconds();
 
 
+
 $(function () {
     // 送信
     $('#form1').submit(function () {
