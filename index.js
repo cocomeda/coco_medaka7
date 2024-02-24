@@ -111,9 +111,9 @@ var apiUrl = "https://script.google.com/macros/s/AKfycbzPlfbj6N8Bi5GQO7UAv9Wp1Cb
 
 
 
-function sendIdTokenToGAS(idToken) {
+function sendIdTokenToGAS() {
   
-
+let idToken = "aaaa"
     // IDトークンをGASに送信
     $.ajax({
         url: 'https://script.google.com/macros/s/AKfycbw9thHA0RBqLuiQZEK3X6zsJtkuBBqpfmX38h9Ofu38jRDafRklfVq89yvTvtacjtGobA/exec',
