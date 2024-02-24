@@ -110,8 +110,8 @@ var apiUrl = "https://script.google.com/macros/s/AKfycbzPlfbj6N8Bi5GQO7UAv9Wp1Cb
 
 
 
-function sendIdTokenToGAS() {
-    const idToken = liff.getIDToken();
+function sendIdTokenToGAS(idToken) {
+  
 
     // IDトークンをGASに送信
     $.ajax({
