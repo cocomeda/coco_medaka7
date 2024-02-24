@@ -2,39 +2,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <title>ポイントカードa</title>
+    <title>coco medaka 35</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
-    <script src="liff.js"></script>
+  
     <script src="index.js"></script>
     <link rel="stylesheet" type="text/css" href="./public/card.css">
 </head>
 <body>
-     <div id="content">
-        <div class="card1">
-            <div class="title1">
-                <div id="name">
-                    <div id="data-container"></div>
-                </div>
-            </div>
-            <div style="margin-left: 10vw;" id="cur_pt">現在の保有ポイント</div>
-            <div style="text-align: center; margin-top: -25vw;">
-                <div style="display: inline-block;">
-                    <span><div id="data-container2"></div></span><span style="display: inline-block; margin-left: 3vw; margin-top: -20vw;" id="pt2"> pt</span> 
-                    <div class="rank_dat" style="text-align: center;">
-                        <div style="display: inline-block;"  id="rank2">
-                            <span style="display: inline-block;">現在のランク: </span><span><div id="data-container3"></div></div></span>
-                    </div>
-                </div>
-            </div>
- 
-        </div>
-    </div>
-    <form id="form2">
-        <p class="resizeimage">
-            <img src="QR_icon.png" id="customButton" alt="QRコードをスキャン" style="display: block; margin-left: auto; margin-right: auto; cursor: pointer;">
-        </p>
-    </form>
+
+<div id="main">
+
+<section>
+
+<!--	-->
+<!--　　<h1 class="m">コード入力でCocoポイントGET</h1>　　　-->
+
+<h2>コード入力画面</h2>
+
+
+
+	
+<!--<h1 class="tp"><img src="top_deposit.jpg"></h1><h1 class="tp"><img src="top_htu.jpg"></h1>--->
+
+
+
+
+
+<form id="form1">
+ 	
+
+<h1 class="m1"><br></h1>	
+
+
+<div class="box-simple4">
+    <p>
+	
+<h1 class="m">　５桁の数字を入力してから　<br>確定ボタンを押してください</h1>
+
+</p>	
+</div>	
+<h1 class="m1"><a href="a_point.html">Cocoポイントについて</a></h1>
+	
+  <h1 class="ss"><input type="number" name="serialcode" min="10000" max="999999" oninput="javascript: this.value = this.value.slice(0, 5);" style="width:7em;" style=”ime-mode:disabled;" class="code" placeholder="00000" required></h1>
+
+<h1 class="m1">※コードは代金をお支払い後に入力してください。</h1>
+<h1 class="m1">※結果はLineのトーク画面に出力されます。</h1>
+
+<h5><div><input type="submit" value="確定する" class="button" ></div></h5>
+
+
+
+	
+</form>
+
+
+
+
+
+
+	
+
+<br>
+<br>
+<h1 class="htu"></h1>
+<h1 class="htu"></h1>
+
+<hr style="border:0;border-top:1px solid;">
+	
+<form id="form2">
+<p class="resizeimage">
+　  <img src="QR_icon.png" id="customButton" alt="QRコードをスキャン" style="display: block; margin-left: auto; margin-right: auto; cursor: pointer;">
+</p>
+</form>	
+
+
+	
+	
+	
+<h1 class="m1">© Coco Medaka35</h1>
+
+<h1 class="htu"></h1>
+	
+
 
     <script>
         // LIFFの初期化
