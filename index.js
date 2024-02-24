@@ -79,11 +79,13 @@ sendQRValueToAPI(idToken); // QRコードデータとIDトークンをGASに送�
 
 
 async function sendQRValueToAPI(idToken) {
-     //const apiUrl = 'https://script.google.com/macros/s/AKfycbxX81FPKsJkEr3ZWsM2j03-Heofgk4554XF8Lljl1IoN9UE9jLCgg98cZON_7P2rgp9/exec';
+     //const apiUrl = 'https://script.google.com/macros/s/AKfycbxX81FPKsJkEr3ZWsM2j03-Heofgk4554XF8Lljl1IoN9UE9jLCgg98cZON_7P2rgp9/exec'; // pp
    
     //var apiUrl = 'https://script.google.com/macros/s/AKfycby_2FhHltY1T3pACSrP6qc-MUObEkHbrpD7H-wcDESsuigWU1cer1aQcJDb-yDK3CR4/exec';//Post
-var apiUrl = 'https://script.google.com/macros/s/AKfycbx88we0Cplyh97X1ty_rOpNP7OrXG9JiXMhmyB-uFfSIHlA1qci9xcvRLmdIalasEYu/exec';//GET
+//var apiUrl = 'https://script.google.com/macros/s/AKfycbx88we0Cplyh97X1ty_rOpNP7OrXG9JiXMhmyB-uFfSIHlA1qci9xcvRLmdIalasEYu/exec';//GET
 
+   
+var apiUrl = "https://script.google.com/macros/s/AKfycbzPlfbj6N8Bi5GQO7UAv9Wp1CbjhaTJghnXN2J6JyjbFw_I7TdMO_Tugt97f5T4vdufKg/exec"
 
    
     const options = {
@@ -103,6 +105,37 @@ var apiUrl = 'https://script.google.com/macros/s/AKfycbx88we0Cplyh97X1ty_rOpNP7O
     const responseData = await response.text();
     console.log('APIレスポンス:', responseData);
 }
+
+
+
+
+function sendIdTokenToGAS() {
+    const idToken = liff.getIDToken();
+
+    // IDトークンをGASに送信
+    $.ajax({
+        url: 'https://script.google.com/macros/s/AKfycbz-ffWFPc36O-ptmFqijL10vbctVuUm1i_Yv3KgjKQotJnXtGlITC4klGh0cJ7RaS28Ww/exec',
+        type: 'POST',
+        data: { idToken: idToken },
+        success: function (response) {
+            // 成功時の処理
+            console.log(response);
+           // displayMessage(response); // レスポンスメッセージを表示
+         // displayData(response);
+        },
+        error: function (error) {
+            // エラー時の処理
+            console.error(error);
+            alert('Failed to send ID Token to GAS.');
+        }
+    });
+}
+
+
+
+
+
+
 
 
 
