@@ -110,7 +110,6 @@ function sendIdTokenToGAS(idToken) {
 
 
 
-
 function sendText(text) {
     // sendMessages(text);
 // }
