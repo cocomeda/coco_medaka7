@@ -14,10 +14,7 @@
     <link rel="stylesheet" type="text/css" href="./public/card.css">
 </head>
 <body>
-    <div id="loading">
-        <!-- ローディング画像をここに追加 -->
-        <img src="loading.gif" alt="Loading...">
-    </div>
+
     
     <div id="content">
         <div class="card1">
@@ -79,7 +76,7 @@
             const idToken = liff.getIDToken();
 
             // ローディング画像表示
-            $('#loading').show();
+           
 
             // IDトークンをGASに送信
             $.ajax({
@@ -99,8 +96,7 @@
                     alert('Failed to send ID Token to GAS.');
                 },
                 complete: function () {
-                    // 通信完了時の処理（ローディング画像を非表示にし、コンテンツを表示）
-                    $('#loading').hide();
+
                     $('#content').show();
                 }
             });
