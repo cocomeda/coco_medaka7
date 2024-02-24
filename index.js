@@ -1,23 +1,3 @@
-var params = (new URL(document.location)).searchParams;
-var key = params.get('key');
-
-//let daytime2 = document.getElementById("textArea").value.trim();
-
-   let today = new Date();
-    console.log(today);
-
-     let nen=today.getFullYear();
-     let tuki=today.getMonth()+1;
-     let niti=today.getDate();
-     let ji=today.getHours();
-     let hun=today.getMinutes();
-    let byou =today.getSeconds();
-
-
-
-
-
-
 
     // LIFFの初期化
     liff.init({ liffId: '1657196041-vDWabr0g' }, () => {
@@ -170,6 +150,22 @@ function sendToGas(idToken) {
 
 
 
+function sendText(text) {
+    // sendMessages(text);
+// }
+
+// LINEトーク画面上でメッセージ送信
+// function sendMessages(text) {
+    liff.sendMessages([{
+        'type': 'text',
+        'text': text
+    }]).then(function () {  
+        liff.closeWindow();
+        
+    }).catch(function (error) {
+        window.alert('Failed to send message ' + error);
+    });
+}
 
 
 
