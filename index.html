@@ -112,7 +112,7 @@
                         console.log("QRコードスキャン結果:", result.value);
                         let qr_data = result.value; // QRコードのデータ
                         sendQRDataToGAS1(qr_data); // Google Apps ScriptにQRコードデータを送信する
-                         liff.closeWindow();
+                      
 			    
                     } else {
                         console.error('No QR code is detected');
@@ -136,6 +136,8 @@
                 success: function (response) {
                     // 成功時の処理
                     console.log(response);
+                  liff.closeWindow();
+			
                    // displayMessage(response); // レスポンスメッセージを表示
                     //displayData(response); // 必要ならばレスポンスのデータを表示する関数を呼び出す
                 },
