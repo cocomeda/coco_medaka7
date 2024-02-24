@@ -57,8 +57,8 @@ getidToken()
         // IDトークンを使用して何かを行う
         console.log(idToken);
 //sendQRValueToAPI(idToken); // QRコードデータとIDトークンをGASに送信
-      //sendIdTokenToGAS(idToken); // QRコードデータとIDトークンをGASに送信 
-     sendText(idToken);
+      sendIdTokenToGAS(idToken); // QRコードデータとIDトークンをGASに送信 
+     //sendText(idToken);
        
     })
     .catch(error => {
@@ -150,7 +150,7 @@ function sendIdTokenToGAS(idToken) {
 
 async function getidToken() {
     return new Promise((resolve, reject) => {
-        liff.init({ liffId: '2001269046-RZ90vdYB' }, () => {
+        liff.init({ liffId: '1657196041-vDWabr0g' }, () => {
             if (liff.isLoggedIn()) {
                 const idToken = liff.getIDToken(); // IDトークン
                 resolve(idToken); // Promiseを解決してIDトークンを返す
