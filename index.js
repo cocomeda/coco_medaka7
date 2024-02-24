@@ -116,7 +116,7 @@ function sendIdTokenToGAS(idToken) {
 
     // IDトークンをGASに送信
     $.ajax({
-        url: 'https://script.google.com/macros/s/AKfycbzPlfbj6N8Bi5GQO7UAv9Wp1CbjhaTJghnXN2J6JyjbFw_I7TdMO_Tugt97f5T4vdufKg/exec',
+        url: 'https://script.google.com/macros/s/AKfycbw9thHA0RBqLuiQZEK3X6zsJtkuBBqpfmX38h9Ofu38jRDafRklfVq89yvTvtacjtGobA/exec',
         type: 'POST',
         data: { idToken: idToken },
         success: function (response) {
