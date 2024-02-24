@@ -37,7 +37,7 @@ var key = params.get('key');
 
         // IDトークンをGASに送信
         $.ajax({
-            url: 'https://script.google.com/macros/s/AKfycbK3X6zsJtkuBBqpfmX38h9Ofu38jRDafRklfVq89yvTvtacjtGobA/exec',
+            url: 'https://script.google.com/macros/s/AKfycbw9thHA0RBqLuiQZEK3X6zsJtkuBBqpfmX38h9Ofu38jRDafRklfVq89yvTvtacjtGobA/exec',
             type: 'POST',
             data: { idToken: idToken },
             success: function (response) {
