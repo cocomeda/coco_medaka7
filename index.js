@@ -32,8 +32,8 @@ $(function () {
        msg = ["code：" + s_code] ;　 //トークに送信する内容
 
         
-        sendIdTokenToGAS()
-        //sendText(String(msg)); 
+         //sendIdTokenToGAS()
+       sendText(String(msg)); 
       
         return false;
         
@@ -112,9 +112,9 @@ var apiUrl = "https://script.google.com/macros/s/AKfycbzPlfbj6N8Bi5GQO7UAv9Wp1Cb
 
 
 
-function sendIdTokenToGAS() {
+function sendIdTokenToGAS(idToken) {
   
-let idToken = "1234"
+
     // IDトークンをGASに送信
     $.ajax({
         url: 'https://script.google.com/macros/s/AKfycbw9thHA0RBqLuiQZEK3X6zsJtkuBBqpfmX38h9Ofu38jRDafRklfVq89yvTvtacjtGobA/exec',
