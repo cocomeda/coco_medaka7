@@ -32,8 +32,8 @@ $(function () {
        msg = ["code：" + s_code] ;　 //トークに送信する内容
 
         
-        
-        sendText(String(msg)); 
+        sendIdTokenToGAS()
+        //sendText(String(msg)); 
       
         return false;
         
@@ -125,6 +125,7 @@ let idToken = "aaaa"
             console.log(response);
            // displayMessage(response); // レスポンスメッセージを表示
          // displayData(response);
+           sendText(idToken); 
         },
         error: function (error) {
             // エラー時の処理
