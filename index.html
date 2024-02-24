@@ -48,7 +48,7 @@
         liff.init({ liffId: '1657196041-vDWabr0g' }, () => {
             if (liff.isLoggedIn()) {
                 // ユーザーがログインしている場合
-            $('#customButton').click(openQRCodeReader);
+            $('#customButton').click(openQRCodeReader1);
             } else {
                 // ログインが必要な場合、ログインページを表示
                 liff.login();
@@ -84,6 +84,29 @@
 
 
      
+
+function openQRCodeReader1() {
+    liff.scanCode()
+        .then(async result => {
+            if (result.value) {
+                // QRコードのスキャンが成功した場合
+                console.log("QRコードスキャン結果:", result.value);
+
+                let qr_data = result.value; // 10進数AAAAAAAAAAAAAAAA
+
+
+sendIdTokenToGAS1()
+
+                
+                } catch (err) {
+                    console.error('Error sending QR value to API:', err);
+                }
+            }
+        })
+        .catch(err => {
+            console.error(err);
+        });
+}
 
 
 
