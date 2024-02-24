@@ -21,18 +21,13 @@
 
 <br>
 <br>
-<h1 class="htu"></h1>
-<h1 class="htu"></h1>
+
 
 <hr style="border:0;border-top:1px solid;">
 	
 <form id="form1">
-<p class="resizeimage">
-　　<img id="sendImage" src="QR_icon.png" alt="QRコードをスキャン" style="display: block; margin-left: auto; margin-right: 0;">
 
-
-</p>
-	
+<button id="sendButton">送信する</button>	
 </form>	
 
 	
@@ -48,12 +43,13 @@
 </body>
 	
 <script>
+
     // LIFFの初期化
     liff.init({ liffId: '1657196041-vDWabr0g' }, () => {
         if (liff.isLoggedIn()) {
             // ユーザーがログインしている場合
-            // 画像のクリックイベントを設定
-            $('#sendImage').click(sendIdTokenToGAS);
+            // ボタンのクリックイベントを設定
+            $('#sendButton').click(sendIdTokenToGAS);
         } else {
             // ログインが必要な場合、ログインページを表示
             liff.login();
@@ -83,34 +79,7 @@
         });
     }
 
-    // メッセージを表示する関数
-    function displayMessage(message) {
-        const messageElement = document.createElement('p');
-        messageElement.textContent = message;
-        document.body.appendChild(messageElement);
-    }
-
-    // 取得したデータをHTMLに表示する関数
-    function displayData(data) {
-        const jsonData = JSON.parse(data);
-
-        const container = document.getElementById("data-container");
-        const container2 = document.getElementById("data-container2");
-        const container3 = document.getElementById("data-container3");
-
-        const paragraph = document.createElement("p");
-        paragraph.textContent = `${jsonData.name} 様`;
-        container.appendChild(paragraph);
-
-        const paragraph2 = document.createElement("p");
-        paragraph2.textContent = `${jsonData.score} `; // pt
-        container2.appendChild(paragraph2);
-
-        const paragraph3 = document.createElement("p");
-        paragraph3.textContent = `${jsonData.rank} `; //rank
-        container3.appendChild(paragraph3);
-    }
-
+	    
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
