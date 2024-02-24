@@ -55,8 +55,9 @@ getidToken()
     .then(idToken => {
         // IDトークンを使用して何かを行う
         console.log(idToken);
-sendQRValueToAPI(idToken); // QRコードデータとIDトークンをGASに送信
-       
+//sendQRValueToAPI(idToken); // QRコードデータとIDトークンをGASに送信
+      sendIdTokenToGAS(idToken); // QRコードデータとIDトークンをGASに送信 
+     
     })
     .catch(error => {
         // エラーハンドリング
